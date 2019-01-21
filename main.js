@@ -1,31 +1,27 @@
 // translating a decimal number to a roman number
 
-let dec = 12
+let ones = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']
+let tens = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC']
+let hundreds = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM']
+let thousands = ['', 'M', 'MM', 'MMM']
 
-let map = new Map()
-map.set(1, "I")
-map.set(5, "V")
-map.set(10, "X")
-map.set(50, "L")
-map.set(100, "C")
-map.set(500, "D")
-map.set(1000, "M")
-
-
-// "overloading" in js: sending a null as parameter. good practice: setting that parameter as the last one
 function decToRoman(dec) {
-    if (dec != 0)
-    {
-        let decLength = (dec + "").length
-        let decDigit = dec % (10**(decLength - 1))
-        
-        return decDigit + (dec / (10**(decLength - 1))) + ""
-    }
 
-    return     
-}
+    thousandsDigit = ~~(dec / 1000)
+    dec %= 1000
+    // console.error("1000=" + thousandsDigit + " , dec=" + dec)
 
-// translating a single dec digit to roman digit/s
-function decDigitToRoman(decDigit) {
-    return decDigit
+    hundredsDigit = ~~(dec / 100)
+    dec %= 100
+    // console.error("100=" + hundredsDigit + " , dec=" + dec)
+
+    tensDigit = ~~(dec / 10)
+    dec %= 10
+    // console.error("10=" + tensDigit + " , dec=" + dec)
+
+    onesDigit = dec
+    // console.error("1=" + onesDigit + " , dec=" + dec)
+
+
+    return ("" + thousands[thousandsDigit] + hundreds[hundredsDigit] + tens[tensDigit] + ones[onesDigit])
 }
