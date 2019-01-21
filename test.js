@@ -7,7 +7,15 @@ function assertEquals(expected, actual, message) {
         }
         console.error(msg)
     }
+
+    console.error(" Hurra! exp = actual")
 }
 
-assertEquals("II", decToRoman(2))
-assertEquals("10 -> X", "X", decToRoman(10))
+assertEquals("2", decToRoman(2), " checking function calls ")
+assertEquals("2", decToRoman(2))
+
+
+// assertEquals("II", decToRoman(2))
+// assertEquals("10 -> X", "X", decToRoman(10))
+
+

@@ -12,18 +12,20 @@ map.set(500, "D")
 map.set(1000, "M")
 
 
-// overloading? it that even allowed in java script?
-function decToRoman(dec, decLength) {
+// "overloading" in js: sending a null as parameter. good practice: setting that parameter as the last one
+function decToRoman(dec) {
+    if (dec != 0)
+    {
+        let decLength = (dec + "").length
+        let decDigit = dec % (10**(decLength - 1))
+        
+        return decDigit + (dec / (10**(decLength - 1))) + ""
+    }
 
-    if (decLength != null)
-        return decToRoman(dec, decLength)
-
-    decLength = (dec + "").length
-
-    
+    return     
 }
 
 // translating a single dec digit to roman digit/s
 function decDigitToRoman(decDigit) {
-
+    return decDigit
 }
