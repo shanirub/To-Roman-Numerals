@@ -11,16 +11,15 @@ map.set(100, "C")
 map.set(500, "D")
 map.set(1000, "M")
 
-alert(dec + " = " + decToRoman(roman))
-
-function decToRoman(dec) {
-    let decLength = (dec + "").length
-    return decToRoman(dec, decLength)
-}
-
 
 // overloading? it that even allowed in java script?
 function decToRoman(dec, decLength) {
+
+    if (decLength != null)
+        return decToRoman(dec, decLength)
+
+    decLength = (dec + "").length
+
     
 }
 
